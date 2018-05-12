@@ -20,6 +20,8 @@ namespace xpanxion.dev.essentials.mobile
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseKestrel()
+                .UseIISIntegration()
                 .Build();
     }
 }
