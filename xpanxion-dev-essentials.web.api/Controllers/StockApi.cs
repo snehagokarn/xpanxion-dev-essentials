@@ -18,10 +18,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using IO.Swagger.Attributes;
 using IO.Swagger.Models;
 
 namespace IO.Swagger.Controllers
@@ -38,9 +36,6 @@ namespace IO.Swagger.Controllers
         /// <response code="200">successful operation</response>
         [HttpGet]
         [Route("/v1/user/stocks/leaders")]
-        [ValidateModelState]
-        [SwaggerOperation("GetLeaderStocks")]
-        [SwaggerResponse(statusCode: 200, type: typeof(UserStock), description: "successful operation")]
         public virtual IActionResult GetLeaderStocks()
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -66,9 +61,6 @@ namespace IO.Swagger.Controllers
         /// <response code="404">User not found</response>
         [HttpGet]
         [Route("/v1/user/stocks/{userId}")]
-        [ValidateModelState]
-        [SwaggerOperation("GetStocksUserById")]
-        [SwaggerResponse(statusCode: 200, type: typeof(User), description: "successful operation")]
         public virtual IActionResult GetStocksUserById([FromRoute][Required]long? userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -99,8 +91,6 @@ namespace IO.Swagger.Controllers
         /// <response code="400">Invalid Order</response>
         [HttpPost]
         [Route("/v1/user/stocks")]
-        [ValidateModelState]
-        [SwaggerOperation("InsertUserStocks")]
         public virtual IActionResult InsertUserStocks([FromBody]UserStock body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -123,9 +113,6 @@ namespace IO.Swagger.Controllers
         /// <response code="200">successful operation</response>
         [HttpPost]
         [Route("/v1/user/stocks/{userId}/uploadImage")]
-        [ValidateModelState]
-        [SwaggerOperation("UploadFile")]
-        [SwaggerResponse(statusCode: 200, type: typeof(ApiResponse), description: "successful operation")]
         public virtual IActionResult UploadFile([FromRoute][Required]long? userId, [FromForm]string additionalMetadata, [FromForm]System.IO.Stream file)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...

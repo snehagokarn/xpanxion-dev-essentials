@@ -18,10 +18,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using IO.Swagger.Attributes;
 using IO.Swagger.Models;
 
 namespace IO.Swagger.Controllers
@@ -41,9 +39,6 @@ namespace IO.Swagger.Controllers
         /// <response code="404">User not found</response>
         [HttpGet]
         [Route("/v1/user/login/{username}")]
-        [ValidateModelState]
-        [SwaggerOperation("GetUserByName")]
-        [SwaggerResponse(statusCode: 200, type: typeof(User), description: "successful operation")]
         public virtual IActionResult GetUserByName([FromRoute][Required]string username)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...

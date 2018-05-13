@@ -18,10 +18,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using IO.Swagger.Attributes;
 using IO.Swagger.Models;
 
 namespace IO.Swagger.Controllers
@@ -39,8 +37,6 @@ namespace IO.Swagger.Controllers
         /// <response code="405">Invalid input</response>
         [HttpPost]
         [Route("/v1/users")]
-        [ValidateModelState]
-        [SwaggerOperation("AddUser")]
         public virtual IActionResult AddUser([FromBody]User body)
         { 
             //TODO: Uncomment the next line to return response 405 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -60,9 +56,6 @@ namespace IO.Swagger.Controllers
         /// <response code="404">User not found</response>
         [HttpGet]
         [Route("/v1/user/{userId}")]
-        [ValidateModelState]
-        [SwaggerOperation("GetUserId")]
-        [SwaggerResponse(statusCode: 200, type: typeof(User), description: "successful operation")]
         public virtual IActionResult GetUserId([FromRoute][Required]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -94,8 +87,6 @@ namespace IO.Swagger.Controllers
         /// <response code="405">Validation exception</response>
         [HttpPut]
         [Route("/v1/users")]
-        [ValidateModelState]
-        [SwaggerOperation("UpdateUser")]
         public virtual IActionResult UpdateUser([FromBody]User body)
         { 
             //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
