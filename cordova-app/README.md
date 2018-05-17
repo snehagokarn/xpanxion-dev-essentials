@@ -1,6 +1,13 @@
-# XpanxionDevEssentialsMobile
+# Cordova-app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+
+## Cordova Build
+
+Run `cordova build` for a build copy of the angular code, it copies to www folder.
+## Cordova Run
+
+Run `cordova run --device` You need to be connected to a device in order for the app to be published.
 
 ## Development server
 
