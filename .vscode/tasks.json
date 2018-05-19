@@ -10,6 +10,13 @@
                 "${workspaceFolder}/xpanxion-dev-essentials.web.api/xpanxion-dev-essentials.web.api.csproj"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "type": "typescript",
+            "tsconfig": "xpanxion-dev-essentials.services\\tsconfig.json",
+            "problemMatcher": [
+                "$tsc"
+            ]
         }
     ]
 }

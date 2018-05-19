@@ -20,9 +20,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using IO.Swagger.Models;
+using xpanxion_dev_essentials.web.api.Models;
 
-namespace IO.Swagger.Controllers
+namespace xpanxion_dev_essentials.web.api.Controllers
 { 
     /// <summary>
     /// 
