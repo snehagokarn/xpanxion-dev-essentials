@@ -6,12 +6,12 @@ phases:
             - apt-get -y update
             - apt-get -y install zip
             - apt-get install -y nodejs
-            - npm install -g angular-cli
+            - npm install -g @angular-cli
             - npm install -g cordova
     build:
          commands:
-          - cd cordova-app/src && ng build
-          - cordova build
+          - cd cordova-app && ng build
+          - cd cordova-app && cordova build
     # post_build:
     #      commands:
             # - serverless deploy --stage dev --region us-east-1 --verbose
