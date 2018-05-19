@@ -1,0 +1,23 @@
+version: 0.1
+
+phases:
+    install:
+         commands:
+            - apt-get -y update
+            - apt-get -y install zip
+            - apt-get install -y nodejs
+            - apt-get install -g angular-cli
+            - apt-get install -g cordova
+            - cordova platform add android
+    build:
+         commands:
+          - cd cordova-app/src && ng build
+          - cordova build
+    # post_build:
+    #      commands:
+            # - serverless deploy --stage dev --region us-east-1 --verbose
+
+artifacts:
+    files:
+         - cordova-app/publish.zip
+    discard-paths: yes
