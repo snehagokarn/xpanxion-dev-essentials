@@ -6,8 +6,7 @@ phases:
             - apt-get -y update
             - apt-get -y install zip
             - apt-get install -y nodejs
-            - npm install -g angular-cli
-            - npm install -g cordova
+            - npm install
     build:
          commands:
           - cd cordova-app && ng build
@@ -18,5 +17,5 @@ phases:
 
 artifacts:
     files:
-         - cordova-app/publish.zip
+         - cordova-app/publish.apk
     discard-paths: yes
