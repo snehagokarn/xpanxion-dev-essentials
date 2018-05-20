@@ -6,7 +6,7 @@ phases:
             - apt-get -y update
             - apt-get -y install zip
             - apt-get install -y nodejs
-            - npm install
+            - cd cordova-app && npm install
     build:
          commands:
           - cd cordova-app && ng build
