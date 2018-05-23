@@ -6,8 +6,8 @@ phases:
             - apt-get -y update
             - apt-get -y install zip
             - apt-get install -y nodejs
-            - npm install -g angular-cli
-            - npm install -g cordova
+            - npm install angular-cli
+            - npm install cordova
     build:
          commands:
           - cd cordova-app/src && ng build
