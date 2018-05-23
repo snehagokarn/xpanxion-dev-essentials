@@ -10,7 +10,7 @@ phases:
             - npm install cordova
     build:
          commands:
-          - cd cordova-app/src && ng build
+          - cd cordova-app/src
           - cd cordova-app && cordova build
     # post_build:
     #      commands:
