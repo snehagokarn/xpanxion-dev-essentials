@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule,MatCardModule, MatIconModule,MatToolbarModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatMenuModule, MatButtonModule,MatCardModule, MatIconModule,MatToolbarModule,MatProgressBarModule } from '@angular/material';
 import  {MatSidenavModule } from '@angular/material/sidenav';
+import {ErrorStateMatcher} from '@angular/material/core';
 
 @NgModule({
-  imports: [MatSidenavModule, MatButtonModule,MatIconModule,MatToolbarModule,MatCardModule],
-  exports: [MatSidenavModule, MatButtonModule,MatIconModule,MatToolbarModule,MatCardModule],
+  imports: [MatInputModule,MatFormFieldModule,MatMenuModule,MatSidenavModule, MatButtonModule,MatIconModule,MatToolbarModule,MatCardModule,MatProgressBarModule],
+  exports: [MatInputModule,MatFormFieldModule,MatMenuModule,MatSidenavModule, MatButtonModule,MatIconModule,MatToolbarModule,MatCardModule,MatProgressBarModule],
 })
-export class MaterialModule { }
+export class MaterialModule { } 

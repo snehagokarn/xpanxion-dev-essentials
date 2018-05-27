@@ -10,7 +10,9 @@ import { MyAccountComponent } from './my-account/my-account.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material.module';
 import { StockStashNavComponent } from './stock-stash-nav/stock-stash-nav.component';
-
+import { AppHttpInterceptor } from './http-interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +27,17 @@ import { StockStashNavComponent } from './stock-stash-nav/stock-stash-nav.compon
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    RoutingModule
+    RoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AppHttpInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

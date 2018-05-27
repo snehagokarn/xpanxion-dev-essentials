@@ -1,8 +1,18 @@
 <div class="container">
 <mat-toolbar color="primary" class="toolbar">
-    <button (click)="sideNav.toggle()" mat-icon-button >
+    <button class="hamburger" class="hamburger" (click)="sideNav.toggle()" mat-icon-button >
         <mat-icon>menu</mat-icon></button>
-    <mat-icon-avatar></mat-icon-avatar>
+        <div class="user">
+              <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                  <mat-icon>sentiment_very_satisfied</mat-icon>
+                <span>Jane Doe</span>
+                <mat-icon>arrow_drop_down</mat-icon>
+              </button>
+              <mat-menu #appMenu="matMenu">
+                  <button mat-menu-item>My Account</button>
+                  <button mat-menu-item>Logout</button>
+                </mat-menu>
+        </div> 
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav class="sidenav" #sideNav mode="push" opened="false">
@@ -30,7 +40,7 @@
     </mat-sidenav>
     <mat-sidenav-content class="sidenav-content">
       <div>
-        main content goes here
+      <router-outlet></router-outlet>  
       </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

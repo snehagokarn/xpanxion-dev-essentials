@@ -1,0 +1,21 @@
+.full-width{
+    width: 100%;
+}
+.actions{
+    text-align: center;
+}
+.social-media{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+.input-with-icon{
+    display: flex;
+    width: 10%;
+}
+.input-with-icon .input{
+   flex-grow: 10;
+}
+.input-with-icon .icon{
+    flex-grow: 0;
+ }

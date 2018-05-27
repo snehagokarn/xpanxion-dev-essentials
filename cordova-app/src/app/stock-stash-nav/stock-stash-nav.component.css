@@ -8,11 +8,15 @@
     right: 0;
   }
   
-  /* .toolbar {
-    position: fixed;
-    z-index: 2;
-  } */
-  
+  .container .toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .container .toolbar .user{
+      width: 100px;
+  }
+
  .sidenav-container {
     flex: 1 0 auto;
   }
@@ -35,4 +39,4 @@
     font-weight: 300;
     letter-spacing: .4px;
 }
-  
+
