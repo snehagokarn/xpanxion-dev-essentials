@@ -1,3 +1,11 @@
 <p>
-  dashboard works!
+  Leader Dashboard
 </p>
+<div *ngIf="leaders">
+  <div *ngFor="let leader of leaders">
+    <app-card [card]="translateToCard(leader)"></app-card>
+  </div>
+</div>
+<div *ngIf="!leaders">
+  No results to display
+</div>

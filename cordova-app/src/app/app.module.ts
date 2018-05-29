@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { AddStockComponent } from './add-stock/add-stock.component';
-import { CardComponent } from './shared/card/card.component';
+import { CardComponent,Card } from './card/card.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material.module';
@@ -21,7 +21,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     AddStockComponent,
     CardComponent,
     MyAccountComponent,
-    StockStashNavComponent,
+    StockStashNavComponent, 
   ],
   imports: [
     BrowserModule,

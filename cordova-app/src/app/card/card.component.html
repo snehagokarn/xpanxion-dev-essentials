@@ -1,16 +1,15 @@
-<mat-card class="example-card">
+<mat-card class="card">
     <mat-card-header>
-      <mat-card-title>{{title}}</mat-card-title>
+      <mat-card-title>{{card.title}}</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="{{imageUrl}}" alt="{{imageAlt}}">
+    <img mat-card-image src="{{card.imageUrl}}" alt="{{imageAlt}}">
     <mat-card-content>
       <p>
-        {{description}}
+        {{card.description}}
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button *ng-if="allowLike" mat-button>
-        <mat-icon>like</mat-icon>
-        LIKE</button>
+      <button *ngIf="card.allowLike" mat-raised-button color="primary">
+        <mat-icon>thumb_up</mat-icon>LIKE</button>
     </mat-card-actions>
   </mat-card>
