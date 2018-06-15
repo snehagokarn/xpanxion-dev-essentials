@@ -1,12 +1,16 @@
-.full-width{
+.ss-full-width{
     width: 100%;
 }
 
-.hidden{
+.ss-hidden{
     display: none!important;
     visibility: hidden!important;
 }
 
-.floatRight{
+.ss-floatRight{
     float: right;
+}
+
+.ss-mb-1 {
+    margin-bottom: 1rem;
 }

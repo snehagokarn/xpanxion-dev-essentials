@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-add-stock',
@@ -9,8 +10,10 @@ export class AddStockComponent implements OnInit {
 
   @ViewChild('browseImage') browseImage:ElementRef;
   @ViewChild('visibleImageName') visibleImageName:ElementRef;
+  @ViewChild('name') name:ElementRef;
+  @ViewChild('description') description:ElementRef;
 
-  constructor() { }
+  constructor(public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -26,9 +29,21 @@ export class AddStockComponent implements OnInit {
     if((actualImagePath.indexOf('png') > -1) || (actualImagePath.indexOf('jpg') > -1) || (actualImagePath.indexOf('gif') > -1)){
       this.visibleImageName.nativeElement.value = imageName;
     } else {
-      this.browseImage.nativeElement.value = '';
-      console.log("You can upload an image file only");
+      this.openSnackBar('Upload Images only', '');
     }    
+  }
+
+  resetStock(){
+    this.browseImage.nativeElement.value = '';
+    this.visibleImageName.nativeElement.value = '';
+    this.description.nativeElement.value = '';
+    this.name.nativeElement.value = '';
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 
 }
