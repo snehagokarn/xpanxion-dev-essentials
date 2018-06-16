@@ -13,6 +13,8 @@ import { StockStashNavComponent } from './stock-stash-nav/stock-stash-nav.compon
 import { AppHttpInterceptor } from './http-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,14 +31,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MaterialModule,
     RoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    {
-      provide:HTTP_INTERCEPTORS,
-      useClass:AppHttpInterceptor,
-      multi:true
-    }
+    // {
+    //   provide:HTTP_INTERCEPTORS,
+    //   useClass:AppHttpInterceptor,
+    //   multi:true
+    // }
   ],
   bootstrap: [AppComponent]
 })

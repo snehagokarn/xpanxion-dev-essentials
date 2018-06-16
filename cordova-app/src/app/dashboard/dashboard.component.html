@@ -1,6 +1,6 @@
-<p>
+<h1>
   Leader Dashboard
-</p>
+</h1>
 <div *ngIf="leaders">
   <div *ngFor="let leader of leaders">
     <app-card [card]="translateToCard(leader)"></app-card>
@@ -9,3 +9,4 @@
 <div *ngIf="!leaders">
   No results to display
 </div>
+<button mat-fab class="add-button" ><mat-icon>add</mat-icon></button> 
