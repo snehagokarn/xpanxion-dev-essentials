@@ -14,12 +14,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   login(){
-    let header : HttpHeaders = new HttpHeaders({"Access-Control-Allow-Origin":"*"});
-    return this.http.get(this.APIUrl + 'users/email/'+this.email,{headers:header}).subscribe( 
+    return this.http.get(this.APIUrl + 'users/email/'+this.email).subscribe( 
       response => { 
         let data:any = response;
-      
-        if(data.StatusCode== 200, data.Items && data.Items.length>0)
+        if(data.Items && data.Items.length>0)
         {  
           //todo set the userservice here to have the logged in user details
           this.router.navigate(["/dashboard"]);
