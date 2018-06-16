@@ -1,3 +1,24 @@
-<p>
-  add-stock works!
-</p>
+<mat-card fullscreen>
+  <mat-card-title>Add Stock</mat-card-title>
+  <mat-card-content>
+    <form>
+		<mat-form-field class="ss-full-width">
+			<input matInput placeholder="Name" #name>
+		</mat-form-field>
+		<mat-form-field class="ss-full-width">
+			<textarea matInput placeholder="Describe achievements" #description></textarea>
+		</mat-form-field>
+		
+		<div class="form-group">
+			<mat-form-field>
+				<input readonly="readonly" #visibleImageName matInput placeholder="Image Name">
+			</mat-form-field>			
+			
+			<input #browseImage class="ss-hidden" type="file" (change)="updateImageName()" accept="image/x-png,image/gif,image/jpeg">			
+			<button class="ss-floatRight" mat-button color="primary" (click)="triggerBrowse()">Browse</button>
+		</div>
+		<button class="ss-full-width ss-mb-1" mat-raised-button color="primary" (click)="resetStock()">Reset</button>
+		<button type="submit" class="ss-full-width" mat-raised-button color="primary">Add</button>
+    </form>
+  </mat-card-content>
+</mat-card>
