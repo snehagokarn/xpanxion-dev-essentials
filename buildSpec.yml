@@ -6,8 +6,8 @@ phases:
             - apt-get -y update
             - apt-get -y install zip
             - apt-get install -y nodejs
-            - sudo npm install -g --unsafe-perm --verbose angular/cli
-            - sudo npm install -g --unsafe-perm --verbose cordova
+            - npm install -g --unsafe-perm --verbose angular/cli
+            - npm install -g --unsafe-perm --verbose cordova
     build:
          commands:
           - cd cordova-app/src && ng build
