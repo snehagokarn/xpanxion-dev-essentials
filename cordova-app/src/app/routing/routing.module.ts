@@ -6,6 +6,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { AddStockComponent } from '../add-stock/add-stock.component';
 import { AppComponent } from '../app.component';
 const appRoutes: Routes = [
+  { path: '', component: LoginComponent },
   {
     path: "login",
     component: LoginComponent

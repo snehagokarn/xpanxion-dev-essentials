@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".ss-full-width{\r\n    width: 100%;\r\n}\r\n\r\n.ss-hidden{\r\n    display: none!important;\r\n    visibility: hidden!important;\r\n}\r\n\r\n.ss-floatRight{\r\n    float: right;\r\n}\r\n\r\n.ss-mb-1 {\r\n    margin-bottom: 1rem;\r\n}"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  add-stock works!\r\n</p>\r\n"
+module.exports = "<mat-card fullscreen>\r\n  <mat-card-title>Add Stock</mat-card-title>\r\n  <mat-card-content>\r\n    <form>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<input matInput placeholder=\"Name\" #name>\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<textarea matInput placeholder=\"Describe achievements\" #description></textarea>\r\n\t\t</mat-form-field>\r\n\t\t\r\n\t\t<div class=\"form-group\">\r\n\t\t\t<mat-form-field>\r\n\t\t\t\t<input readonly=\"readonly\" #visibleImageName matInput placeholder=\"Image Name\">\r\n\t\t\t</mat-form-field>\t\t\t\r\n\t\t\t\r\n\t\t\t<input #browseImage class=\"ss-hidden\" type=\"file\" (change)=\"updateImageName()\" accept=\"image/x-png,image/gif,image/jpeg\">\t\t\t\r\n\t\t\t<button class=\"ss-floatRight\" mat-button color=\"primary\" (click)=\"triggerBrowse()\">Browse</button>\r\n\t\t</div>\r\n\t\t<button class=\"ss-full-width ss-mb-1\" mat-raised-button color=\"primary\" (click)=\"resetStock()\">Reset</button>\r\n\t\t<button type=\"submit\" class=\"ss-full-width\" mat-raised-button color=\"primary\">Add</button>\r\n    </form>\r\n  </mat-card-content>\r\n</mat-card>"
 
 /***/ }),
 
@@ -56,6 +56,7 @@ module.exports = "<p>\r\n  add-stock works!\r\n</p>\r\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddStockComponent", function() { return AddStockComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,18 +67,60 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AddStockComponent = /** @class */ (function () {
-    function AddStockComponent() {
+    function AddStockComponent(snackBar) {
+        this.snackBar = snackBar;
     }
     AddStockComponent.prototype.ngOnInit = function () {
     };
+    AddStockComponent.prototype.triggerBrowse = function () {
+        this.browseImage.nativeElement.click();
+    };
+    AddStockComponent.prototype.updateImageName = function () {
+        var actualImagePath = this.browseImage.nativeElement.value;
+        var imageName = actualImagePath.replace(/.*[\/\\]/, '');
+        if ((actualImagePath.indexOf('png') > -1) || (actualImagePath.indexOf('jpg') > -1) || (actualImagePath.indexOf('gif') > -1)) {
+            this.visibleImageName.nativeElement.value = imageName;
+        }
+        else {
+            this.openSnackBar('Upload Images only', '');
+        }
+    };
+    AddStockComponent.prototype.resetStock = function () {
+        this.browseImage.nativeElement.value = '';
+        this.visibleImageName.nativeElement.value = '';
+        this.description.nativeElement.value = '';
+        this.name.nativeElement.value = '';
+    };
+    AddStockComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, {
+            duration: 3000,
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('browseImage'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], AddStockComponent.prototype, "browseImage", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('visibleImageName'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], AddStockComponent.prototype, "visibleImageName", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('name'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], AddStockComponent.prototype, "name", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('description'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], AddStockComponent.prototype, "description", void 0);
     AddStockComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-add-stock',
             template: __webpack_require__(/*! ./add-stock.component.html */ "./src/app/add-stock/add-stock.component.html"),
             styles: [__webpack_require__(/*! ./add-stock.component.css */ "./src/app/add-stock/add-stock.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSnackBar"]])
     ], AddStockComponent);
     return AddStockComponent;
 }());
@@ -93,7 +136,7 @@ var AddStockComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container{\r\n    display: flex;\r\n  flex-direction: column;\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}"
+module.exports = ".container{\r\n  display: flex;\r\n  flex-direction: column;\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}"
 
 /***/ }),
 
@@ -171,16 +214,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _modules_material_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/material.module */ "./src/app/modules/material.module.ts");
 /* harmony import */ var _stock_stash_nav_stock_stash_nav_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stock-stash-nav/stock-stash-nav.component */ "./src/app/stock-stash-nav/stock-stash-nav.component.ts");
-/* harmony import */ var _http_interceptor__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./http-interceptor */ "./src/app/http-interceptor.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -214,16 +255,11 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__["BrowserAnimationsModule"],
                 _modules_material_module__WEBPACK_IMPORTED_MODULE_10__["MaterialModule"],
                 _routing_routing_module__WEBPACK_IMPORTED_MODULE_2__["RoutingModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_14__["ReactiveFormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"]
             ],
-            providers: [
-                {
-                    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HTTP_INTERCEPTORS"],
-                    useClass: _http_interceptor__WEBPACK_IMPORTED_MODULE_12__["AppHttpInterceptor"],
-                    multi: true
-                }
-            ],
+            providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
@@ -308,7 +344,7 @@ var CardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".add-button{\r\n    float: right;\r\n    position: absolute;\r\n    top: 87%;\r\n    right: 1%;\r\n    z-index: 1000;\r\n  }"
 
 /***/ }),
 
@@ -319,7 +355,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  Leader Dashboard\r\n</p>\r\n<div *ngIf=\"leaders\">\r\n  <div *ngFor=\"let leader of leaders\">\r\n    <app-card [card]=\"translateToCard(leader)\"></app-card>\r\n  </div>\r\n</div>\r\n<div *ngIf=\"!leaders\">\r\n  No results to display\r\n</div>\r\n<button mat-fab ><mat-icon>add</mat-icon></button> "
+module.exports = "<h1>\r\n  Leader Dashboard\r\n</h1>\r\n<div *ngIf=\"leaders\">\r\n  <div *ngFor=\"let leader of leaders\">\r\n    <app-card [card]=\"translateToCard(leader)\"></app-card>\r\n  </div>\r\n</div>\r\n<div *ngIf=\"!leaders\">\r\n  No results to display\r\n</div>\r\n<button mat-fab class=\"add-button\" (click)=\"addStock()\" ><mat-icon>add</mat-icon></button> "
 
 /***/ }),
 
@@ -334,6 +370,7 @@ module.exports = "<p>\r\n  Leader Dashboard\r\n</p>\r\n<div *ngIf=\"leaders\">\r
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -344,8 +381,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent() {
+    function DashboardComponent(router) {
+        this.router = router;
     }
     DashboardComponent.prototype.translateToCard = function (leader) {
         return {
@@ -360,49 +399,18 @@ var DashboardComponent = /** @class */ (function () {
         this.leaders = new Array();
         this.leaders.push({ fullName: "Sneha", score: 100, image: "https://pbs.twimg.com/profile_images/2547401667/me_400x400.jpg", description: "Sneha is awesome" });
     };
+    DashboardComponent.prototype.addStock = function () {
+        this.router.navigate(["addstock"]);
+    };
     DashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-dashboard',
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/dashboard/dashboard.component.html"),
             styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], DashboardComponent);
     return DashboardComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/http-interceptor.ts":
-/*!*************************************!*\
-  !*** ./src/app/http-interceptor.ts ***!
-  \*************************************/
-/*! exports provided: AppHttpInterceptor */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppHttpInterceptor", function() { return AppHttpInterceptor; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var AppHttpInterceptor = /** @class */ (function () {
-    function AppHttpInterceptor() {
-    }
-    AppHttpInterceptor.prototype.intercept = function (req, next) {
-        throw new Error("Method not implemented.");
-    };
-    AppHttpInterceptor = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
-    ], AppHttpInterceptor);
-    return AppHttpInterceptor;
 }());
 
 
@@ -427,7 +435,7 @@ module.exports = ".full-width{\r\n    width: 100%;\r\n}\r\n.actions{\r\n    text
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card fullscreen>\r\n  <mat-card-title>Login</mat-card-title>\r\n  <mat-card-content>\r\n    <form>\r\n      <!-- <div class=\"social-media\">\r\n        <div>\r\n          FB\r\n        </div>\r\n        <div>\r\n          Google\r\n        </div>\r\n      </div> -->\r\n      <mat-form-field  class=\"full-width\" >\r\n        <!-- <div class=\"icon\"><mat-icon>person</mat-icon></div> -->\r\n        <div class=\"input\"><input matInput type=\"email\" placeholder=\"Email\"></div>\r\n      </mat-form-field>\r\n      <mat-form-field class=\"full-width\" >\r\n      <!-- <mat-icon>lock_open</mat-icon> -->\r\n      <input  matInput id=\"password\" type=\"password\" placeholder=\"Password\" />\r\n    </mat-form-field>\r\n      <button type=\"submit\" class=\"full-width\" mat-raised-button color=\"primary\">Login</button>\r\n    </form>\r\n  </mat-card-content>\r\n</mat-card>"
+module.exports = "<mat-card fullscreen>\r\n  <mat-card-title>Login</mat-card-title>\r\n  <mat-card-content>\r\n    <form>\r\n      <!-- <div class=\"social-media\">\r\n        <div>\r\n          FB\r\n        </div>\r\n        <div>\r\n          Google\r\n        </div>\r\n      </div> -->\r\n      <mat-form-field  class=\"full-width\" >\r\n        <!-- <div class=\"icon\"><mat-icon>person</mat-icon></div> -->\r\n        <div class=\"input\"><input [(ngModel)]=\"email\" name=\"email\" matInput type=\"email\" placeholder=\"Email\"></div>\r\n      </mat-form-field>\r\n      <!-- <mat-form-field class=\"full-width\" >\r\n      <input  matInput id=\"password\" type=\"password\" placeholder=\"Password\" />\r\n    </mat-form-field> -->\r\n      <button type=\"submit\" (click)=\"login()\" class=\"full-width\" mat-raised-button color=\"primary\">Login</button>\r\n    </form>\r\n  </mat-card-content>\r\n</mat-card>"
 
 /***/ }),
 
@@ -442,6 +450,8 @@ module.exports = "<mat-card fullscreen>\r\n  <mat-card-title>Login</mat-card-tit
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -452,10 +462,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent() {
+    function LoginComponent(http, router) {
+        this.http = http;
+        this.router = router;
+        this.APIUrl = " https://ortj2rixy2.execute-api.us-east-1.amazonaws.com/dev/";
     }
     LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent.prototype.login = function () {
+        var _this = this;
+        return this.http.get(this.APIUrl + 'users/email/' + this.email).subscribe(function (response) {
+            var data = response;
+            if (data.Items && data.Items.length > 0) {
+                //todo set the userservice here to have the logged in user details
+                _this.router.navigate(["/dashboard"]);
+            }
+        }, function (err) { return console.error(err); }, function () { return console.log('done loading foods'); });
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -463,7 +488,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -499,8 +524,8 @@ var MaterialModule = /** @class */ (function () {
     }
     MaterialModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatMenuModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_2__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatProgressBarModule"]],
-            exports: [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatMenuModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_2__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatProgressBarModule"]],
+            imports: [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatMenuModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_2__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatProgressBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSnackBarModule"]],
+            exports: [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatMenuModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_2__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatProgressBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSnackBarModule"]],
         })
     ], MaterialModule);
     return MaterialModule;
@@ -587,6 +612,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _add_stock_add_stock_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../add-stock/add-stock.component */ "./src/app/add-stock/add-stock.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -597,7 +623,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var appRoutes = [
+    { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
     {
         path: "login",
         component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]
@@ -605,6 +633,10 @@ var appRoutes = [
     {
         path: "dashboard",
         component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"]
+    },
+    {
+        path: "addstock",
+        component: _add_stock_add_stock_component__WEBPACK_IMPORTED_MODULE_4__["AddStockComponent"]
     }
 ];
 var RoutingModule = /** @class */ (function () {
@@ -641,7 +673,7 @@ module.exports = ".container {\r\n    display: flex;\r\n    flex-direction: colu
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n<mat-toolbar color=\"primary\" class=\"toolbar\">\n    <button class=\"hamburger\" class=\"hamburger\" (click)=\"sideNav.toggle()\" mat-icon-button >\n        <mat-icon>menu</mat-icon></button>\n        <div class=\"user\">\n              <button mat-icon-button [matMenuTriggerFor]=\"appMenu\">\n                  <mat-icon>sentiment_very_satisfied</mat-icon>\n                <span>Jane Doe</span>\n                <mat-icon>arrow_drop_down</mat-icon>\n              </button>\n              <mat-menu #appMenu=\"matMenu\">\n                  <button mat-menu-item>My Account</button>\n                  <button mat-menu-item>Logout</button>\n                </mat-menu>\n        </div> \n</mat-toolbar>\n<mat-sidenav-container class=\"sidenav-container\">\n    <mat-sidenav class=\"sidenav\" #sideNav mode=\"push\" opened=\"false\">\n    <div class=\"navbar-header\">\n        <div class=\"logo\">\n          <img class=\"logo-icon\" src=\"\">\n          <span class=\"logo-text\">Stock Share</span>\n        </div>\n    </div>\n    <div>\n      <button mat-button color=\"primary\">\n      <mat-icon>stars</mat-icon>\n      Leader Dashboard</button>\n    </div>\n    <div>\n      <button mat-button color=\"primary\">\n          <mat-icon>attach_money</mat-icon>\n          Give Points</button>\n    </div>\n    <div>\n        <button mat-button color=\"primary\">\n            <mat-icon>history</mat-icon>\n            My History</button>\n      </div>\n    </mat-sidenav>\n    <mat-sidenav-content class=\"sidenav-content\">\n      <div>\n      <router-outlet></router-outlet>  \n      </div>\n    </mat-sidenav-content>\n</mat-sidenav-container>\n</div>"
+module.exports = "<div class=\"container\">\n<mat-toolbar color=\"primary\" class=\"toolbar\">\n    <button class=\"hamburger\" class=\"hamburger\" (click)=\"sideNav.toggle()\" mat-icon-button >\n        <mat-icon>menu</mat-icon></button>\n        <div class=\"user\">\n              <button mat-icon-button [matMenuTriggerFor]=\"appMenu\">\n                  <mat-icon>sentiment_very_satisfied</mat-icon>\n                <span>Jane Doe</span>\n                <mat-icon>arrow_drop_down</mat-icon>\n              </button>\n              <mat-menu #appMenu=\"matMenu\">\n                  <button mat-menu-item>My Account</button>\n                  <button mat-menu-item>Logout</button>\n                </mat-menu>\n        </div> \n</mat-toolbar>\n<mat-sidenav-container class=\"sidenav-container\">\n    <mat-sidenav class=\"sidenav\" #sideNav mode=\"push\" opened=\"false\">\n    <div class=\"navbar-header\">\n        <div class=\"logo\">\n          <img class=\"logo-icon\" src=\"\">\n          <span class=\"logo-text\">Stock Share</span>\n        </div>\n    </div>\n    <div>\n      <button routerLink=\"/dashboard\" routerLinkActive=\"active\" mat-button color=\"primary\">\n      <mat-icon>stars</mat-icon>\n      Leader Dashboard</button>\n    </div>\n    <div>\n      <button routerLink=\"/addstock\" routerLinkActive=\"active\"  mat-button color=\"primary\">\n          <mat-icon>attach_money</mat-icon>\n          Give Points</button>\n    </div>\n    <div>\n        <button mat-button color=\"primary\">\n            <mat-icon>history</mat-icon>\n            My History</button>\n      </div>\n    </mat-sidenav>\n    <mat-sidenav-content class=\"sidenav-content\">\n      <div>\n      <router-outlet></router-outlet>  \n      </div>\n    </mat-sidenav-content>\n</mat-sidenav-container>\n</div>"
 
 /***/ }),
 

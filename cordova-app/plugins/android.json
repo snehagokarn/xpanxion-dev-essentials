@@ -12,7 +12,17 @@
     },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "xpanxion.dev.essentials"
+    },
+    "cordova-plugin-appcenter-analytics": {
+      "PACKAGE_NAME": "xpanxion.dev.essentials"
+    },
+    "cordova-plugin-appcenter-crashes": {
+      "PACKAGE_NAME": "xpanxion.dev.essentials"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-appcenter-shared": {
+      "PACKAGE_NAME": "xpanxion.dev.essentials"
+    }
+  }
 }
