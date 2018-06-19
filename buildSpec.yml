@@ -8,10 +8,10 @@ phases:
             - apt-get install -y nodejs
             - npm i -g @angular/cli
             - npm install -g --unsafe-perm --verbose cordova
-    # build:
-    #      commands:
-    #       - cd cordova-app/src && ng build
-    #       - cd cordova-app && cordova build
+    build:
+         commands:
+          - cd cordova-app/src
+        #   - cd cordova-app && cordova build
     # post_build:
     #      commands:
             # - serverless deploy --stage dev --region us-east-1 --verbose
