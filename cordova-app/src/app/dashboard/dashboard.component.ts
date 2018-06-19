@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import{ Card } from '../card/card.component';
 import {CardComponent} from '../card/card.component'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -22,11 +24,15 @@ export class DashboardComponent implements OnInit {
     };
 
   }
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
     this.leaders = new Array<Leader>();
     this.leaders.push({fullName:"Sneha",score:100,image:"https://pbs.twimg.com/profile_images/2547401667/me_400x400.jpg",description:"Sneha is awesome"});
+  }
+
+  addStock(){
+    this.router.navigate(["addstock"]);
   }
 }
 export interface Leader{
