@@ -1,7 +1,7 @@
-<h1>
+<h1 class="ss-headline">
   Leader Dashboard
 </h1>
-<div *ngIf="leaders">
+<div *ngIf="leaders" class="ss-dashboard-card">
   <div *ngFor="let leader of leaders">
     <app-card [card]="translateToCard(leader)"></app-card>
   </div>

@@ -1,11 +1,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
   }
   
   .container .toolbar {
@@ -17,12 +12,21 @@
       width: 100px;
   }
 
+  .ss-fix-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
  .sidenav-container {
     flex: 1 0 auto;
+    margin-top: 56px;
   }
 
   .sidenav-content{
-      padding: 10px;
+      padding: 1rem;
   }
 
   .sidenav .mat-button{

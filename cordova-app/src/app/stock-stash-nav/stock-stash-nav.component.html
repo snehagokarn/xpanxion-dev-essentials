@@ -1,47 +1,50 @@
 <div class="container">
-<mat-toolbar color="primary" class="toolbar">
-    <button class="hamburger" class="hamburger" (click)="sideNav.toggle()" mat-icon-button >
-        <mat-icon>menu</mat-icon></button>
+  <div class="ss-fix-header">
+    <mat-toolbar color="primary" class="toolbar">
+        <button class="hamburger" class="hamburger" (click)="sideNav.toggle()" mat-icon-button >
+          <mat-icon>menu</mat-icon>
+        </button>
         <div class="user">
-              <button mat-icon-button [matMenuTriggerFor]="appMenu">
-                  <mat-icon>sentiment_very_satisfied</mat-icon>
-                <span>Jane Doe</span>
-                <mat-icon>arrow_drop_down</mat-icon>
-              </button>
-              <mat-menu #appMenu="matMenu">
-                  <button mat-menu-item>My Account</button>
-                  <button mat-menu-item>Logout</button>
-                </mat-menu>
+          <button mat-icon-button [matMenuTriggerFor]="appMenu">
+              <mat-icon>sentiment_very_satisfied</mat-icon>
+            <span>Jane Doe</span>
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+          <mat-menu #appMenu="matMenu">
+            <button mat-menu-item>My Account</button>
+            <button mat-menu-item>Logout</button>
+          </mat-menu>
         </div> 
-</mat-toolbar>
-<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav class="sidenav" #sideNav mode="push" opened="false">
-    <div class="navbar-header">
-        <div class="logo">
-          <img class="logo-icon" src="">
-          <span class="logo-text">Stock Share</span>
-        </div>
-    </div>
-    <div>
-      <button routerLink="/dashboard" routerLinkActive="active" mat-button color="primary">
-      <mat-icon>stars</mat-icon>
-      Leader Dashboard</button>
-    </div>
-    <div>
-      <button routerLink="/addstock" routerLinkActive="active"  mat-button color="primary">
-          <mat-icon>attach_money</mat-icon>
-          Give Points</button>
-    </div>
-    <div>
-        <button mat-button color="primary">
-            <mat-icon>history</mat-icon>
-            My History</button>
+    </mat-toolbar>
+  </div>
+  <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav class="sidenav" #sideNav mode="push" opened="false">
+      <div class="navbar-header">
+          <div class="logo">
+            <img class="logo-icon" src="">
+            <span class="logo-text">Stock Share</span>
+          </div>
       </div>
-    </mat-sidenav>
-    <mat-sidenav-content class="sidenav-content">
       <div>
-      <router-outlet></router-outlet>  
+        <button routerLink="/dashboard" routerLinkActive="active" mat-button color="primary">
+        <mat-icon>stars</mat-icon>
+        Leader Dashboard</button>
       </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+      <div>
+        <button routerLink="/addstock" routerLinkActive="active"  mat-button color="primary">
+            <mat-icon>attach_money</mat-icon>
+            Give Points</button>
+      </div>
+      <div>
+          <button mat-button color="primary">
+              <mat-icon>history</mat-icon>
+              My History</button>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content class="sidenav-content">
+        <div>
+        <router-outlet></router-outlet>  
+        </div>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

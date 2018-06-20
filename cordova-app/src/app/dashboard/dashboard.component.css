@@ -1,7 +1,10 @@
 .add-button{
-    float: right;
-    position: absolute;
-    top: 87%;
-    right: 1%;
-    z-index: 1000;
-  }
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.ss-headline{
+  text-align: center;
+  margin: 0.5rem 0 1.5rem;
+}

@@ -1,4 +1,11 @@
-.card{
-    width: 250px;
+.ss-image-wrapper{
+    text-align: center;
+    background: beige;
+}
+
+.ss-image-wrapper img{
+    width: auto;
+    max-width: 100%;
+    margin: 0 !important;
 }
 /* todo add media query */
