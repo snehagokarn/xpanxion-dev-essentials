@@ -1,6 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
   }
   
   .container .toolbar {
@@ -27,6 +28,11 @@
 
   .sidenav-content{
       padding: 1rem;
+  }
+
+  .sidenav{
+      position: fixed;
+      top: 56px;
   }
 
   .sidenav .mat-button{
