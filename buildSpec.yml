@@ -17,8 +17,7 @@ phases:
     # post_build:
     #      commands:
             # - serverless deploy --stage dev --region us-east-1 --verbose
-
-# artifacts:
-#     files:
-#          - cordova-app/publish.apk
-#     discard-paths: yes
+artifacts:
+    files:
+         - cordova-app/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+    discard-paths: yes
