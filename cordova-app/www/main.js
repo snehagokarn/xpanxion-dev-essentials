@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".ss-full-width{\r\n    width: 100%;\r\n}\r\n\r\n.ss-hidden{\r\n    display: none!important;\r\n    visibility: hidden!important;\r\n}\r\n\r\n.ss-floatRight{\r\n    float: right;\r\n}\r\n\r\n.ss-mb-1 {\r\n    margin-bottom: 1rem;\r\n}"
+module.exports = ".ss-full-width{\r\n    width: 100%;\r\n}\r\n\r\n.ss-hidden{\r\n    display: none!important;\r\n    visibility: hidden!important;\r\n}\r\n\r\n.ss-floatRight{\r\n    float: right;\r\n}\r\n\r\n.ss-mb-1 {\r\n    margin-bottom: 1rem;\r\n}\r\n\r\n.ss-headline{\r\n    text-align: center;\r\n    margin: 0.5rem 0 1.5rem;\r\n  }"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ".ss-full-width{\r\n    width: 100%;\r\n}\r\n\r\n.ss-hidden{\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card fullscreen>\r\n  <mat-card-title>Add Stock</mat-card-title>\r\n  <mat-card-content>\r\n    <form>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<input matInput placeholder=\"Name\" #name>\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<textarea matInput placeholder=\"Describe achievements\" #description></textarea>\r\n\t\t</mat-form-field>\r\n\t\t\r\n\t\t<div class=\"form-group\">\r\n\t\t\t<mat-form-field>\r\n\t\t\t\t<input readonly=\"readonly\" #visibleImageName matInput placeholder=\"Image Name\">\r\n\t\t\t</mat-form-field>\t\t\t\r\n\t\t\t\r\n\t\t\t<input #browseImage class=\"ss-hidden\" type=\"file\" (change)=\"updateImageName()\" accept=\"image/x-png,image/gif,image/jpeg\">\t\t\t\r\n\t\t\t<button class=\"ss-floatRight\" mat-button color=\"primary\" (click)=\"triggerBrowse()\">Browse</button>\r\n\t\t</div>\r\n\t\t<button class=\"ss-full-width ss-mb-1\" mat-raised-button color=\"primary\" (click)=\"resetStock()\">Reset</button>\r\n\t\t<button type=\"submit\" class=\"ss-full-width\" mat-raised-button color=\"primary\">Add</button>\r\n    </form>\r\n  </mat-card-content>\r\n</mat-card>"
+module.exports = "<h1 class=\"ss-headline\">\r\n  Add Stock\r\n</h1>\r\n<mat-card fullscreen>\r\n  <mat-card-content>\r\n    <form>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<input matInput placeholder=\"Name\" #name>\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<textarea matInput placeholder=\"Describe achievements\" #description></textarea>\r\n\t\t</mat-form-field>\r\n\t\t\r\n\t\t<div class=\"form-group\">\r\n\t\t\t<mat-form-field>\r\n\t\t\t\t<input readonly=\"readonly\" #visibleImageName matInput placeholder=\"Image Name\">\r\n\t\t\t</mat-form-field>\t\t\t\r\n\t\t\t\r\n\t\t\t<input #browseImage class=\"ss-hidden\" type=\"file\" (change)=\"updateImageName()\" accept=\"image/x-png,image/gif,image/jpeg\">\t\t\t\r\n\t\t\t<button class=\"ss-floatRight\" mat-button color=\"primary\" (click)=\"triggerBrowse()\">Browse</button>\r\n\t\t</div>\r\n\t\t<button class=\"ss-full-width ss-mb-1\" mat-raised-button color=\"primary\" (click)=\"resetStock()\">Reset</button>\r\n\t\t<button type=\"submit\" class=\"ss-full-width\" mat-raised-button color=\"primary\">Add</button>\r\n    </form>\r\n  </mat-card-content>\r\n</mat-card>"
 
 /***/ }),
 
@@ -136,7 +136,7 @@ var AddStockComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container{\r\n  display: flex;\r\n  flex-direction: column;\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}"
+module.exports = ".container{\r\n  display: flex;\r\n  flex-direction: column;\r\n}"
 
 /***/ }),
 
@@ -277,7 +277,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".card{\r\n    width: 250px;\r\n}\r\n/* todo add media query */"
+module.exports = ".ss-image-wrapper{\r\n    text-align: center;\r\n    background: beige;\r\n}\r\n\r\n.ss-image-wrapper img{\r\n    width: auto;\r\n    max-width: 100%;\r\n    margin: 0 !important;\r\n}\r\n\r\n/* todo add media query */"
 
 /***/ }),
 
@@ -288,7 +288,7 @@ module.exports = ".card{\r\n    width: 250px;\r\n}\r\n/* todo add media query */
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"card\">\n    <mat-card-header>\n      <mat-card-title>{{card.title}}</mat-card-title>\n    </mat-card-header>\n    <img mat-card-image src=\"{{card.imageUrl}}\" alt=\"{{imageAlt}}\">\n    <mat-card-content>\n      <p>\n        {{card.description}}\n      </p>\n    </mat-card-content>\n    <mat-card-actions>\n      <button *ngIf=\"card.allowLike\" mat-raised-button color=\"primary\">\n        <mat-icon>thumb_up</mat-icon>LIKE</button>\n    </mat-card-actions>\n  </mat-card>"
+module.exports = "<mat-card class=\"card\">\r\n  <mat-card-title>{{card.title}}</mat-card-title>\r\n  <div class=\"ss-image-wrapper\">\r\n    <img mat-card-image src=\"{{card.imageUrl}}\" alt=\"{{imageAlt}}\">\r\n  </div>\r\n  <mat-card-content>\r\n    <p>\r\n      {{card.description}}\r\n    </p>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button *ngIf=\"card.allowLike\" mat-raised-button color=\"primary\">\r\n      <mat-icon>thumb_up</mat-icon>LIKE</button>\r\n  </mat-card-actions>\r\n</mat-card>"
 
 /***/ }),
 
@@ -344,7 +344,7 @@ var CardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".add-button{\r\n    float: right;\r\n    position: absolute;\r\n    top: 87%;\r\n    right: 1%;\r\n    z-index: 1000;\r\n  }"
+module.exports = ".add-button{\r\n  position: fixed;\r\n  right: 1rem;\r\n  bottom: 1rem;\r\n}\r\n\r\n.ss-headline{\r\n  text-align: center;\r\n  margin: 0.5rem 0 1.5rem;\r\n}"
 
 /***/ }),
 
@@ -355,7 +355,7 @@ module.exports = ".add-button{\r\n    float: right;\r\n    position: absolute;\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\r\n  Leader Dashboard\r\n</h1>\r\n<div *ngIf=\"leaders\">\r\n  <div *ngFor=\"let leader of leaders\">\r\n    <app-card [card]=\"translateToCard(leader)\"></app-card>\r\n  </div>\r\n</div>\r\n<div *ngIf=\"!leaders\">\r\n  No results to display\r\n</div>\r\n<button mat-fab class=\"add-button\" (click)=\"addStock()\" ><mat-icon>add</mat-icon></button> "
+module.exports = "<h1 class=\"ss-headline\">\r\n  Leader Dashboard\r\n</h1>\r\n<div *ngIf=\"leaders\" class=\"ss-dashboard-card\">\r\n  <div *ngFor=\"let leader of leaders\">\r\n    <app-card [card]=\"translateToCard(leader)\"></app-card>\r\n  </div>\r\n</div>\r\n<div *ngIf=\"!leaders\">\r\n  No results to display\r\n</div>\r\n<button mat-fab class=\"add-button\" (click)=\"addStock()\" ><mat-icon>add</mat-icon></button> "
 
 /***/ }),
 
@@ -370,7 +370,8 @@ module.exports = "<h1>\r\n  Leader Dashboard\r\n</h1>\r\n<div *ngIf=\"leaders\">
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -382,9 +383,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(router) {
+    function DashboardComponent(http, router) {
+        this.http = http;
         this.router = router;
+        this.APIUrl = " https://ortj2rixy2.execute-api.us-east-1.amazonaws.com/dev/";
     }
     DashboardComponent.prototype.translateToCard = function (leader) {
         return {
@@ -408,7 +412,7 @@ var DashboardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/dashboard/dashboard.component.html"),
             styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -662,7 +666,7 @@ var RoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    position: absolute;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n  }\r\n  \r\n  .container .toolbar {\r\n    display: flex;\r\n    justify-content: space-between;\r\n  }\r\n  \r\n  .container .toolbar .user{\r\n      width: 100px;\r\n  }\r\n  \r\n  .sidenav-container {\r\n    flex: 1 0 auto;\r\n  }\r\n  \r\n  .sidenav-content{\r\n      padding: 10px;\r\n  }\r\n  \r\n  .sidenav .mat-button{\r\n      width: 100%;\r\n      text-align: left;\r\n  }\r\n  \r\n  .navbar-header .logo{\r\n      padding: 10px;\r\n  }\r\n  \r\n  .navbar-header .logo .logo-text {\r\n    margin-left: 8px;\r\n    font-size: 20px;\r\n    font-weight: 300;\r\n    letter-spacing: .4px;\r\n}\r\n\r\n"
+module.exports = ".container {\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\r\n  \r\n  .container .toolbar {\r\n    display: flex;\r\n    justify-content: space-between;\r\n  }\r\n  \r\n  .container .toolbar .user{\r\n      width: 100px;\r\n  }\r\n  \r\n  .ss-fix-header{\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 2;\r\n  }\r\n  \r\n  .sidenav-container {\r\n    flex: 1 0 auto;\r\n    margin-top: 56px;\r\n  }\r\n  \r\n  .sidenav-content{\r\n      padding: 1rem;\r\n  }\r\n  \r\n  .sidenav .mat-button{\r\n      width: 100%;\r\n      text-align: left;\r\n  }\r\n  \r\n  .navbar-header .logo{\r\n      padding: 10px;\r\n  }\r\n  \r\n  .navbar-header .logo .logo-text {\r\n    margin-left: 8px;\r\n    font-size: 20px;\r\n    font-weight: 300;\r\n    letter-spacing: .4px;\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -673,7 +677,7 @@ module.exports = ".container {\r\n    display: flex;\r\n    flex-direction: colu
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n<mat-toolbar color=\"primary\" class=\"toolbar\">\n    <button class=\"hamburger\" class=\"hamburger\" (click)=\"sideNav.toggle()\" mat-icon-button >\n        <mat-icon>menu</mat-icon></button>\n        <div class=\"user\">\n              <button mat-icon-button [matMenuTriggerFor]=\"appMenu\">\n                  <mat-icon>sentiment_very_satisfied</mat-icon>\n                <span>Jane Doe</span>\n                <mat-icon>arrow_drop_down</mat-icon>\n              </button>\n              <mat-menu #appMenu=\"matMenu\">\n                  <button mat-menu-item>My Account</button>\n                  <button mat-menu-item>Logout</button>\n                </mat-menu>\n        </div> \n</mat-toolbar>\n<mat-sidenav-container class=\"sidenav-container\">\n    <mat-sidenav class=\"sidenav\" #sideNav mode=\"push\" opened=\"false\">\n    <div class=\"navbar-header\">\n        <div class=\"logo\">\n          <img class=\"logo-icon\" src=\"\">\n          <span class=\"logo-text\">Stock Share</span>\n        </div>\n    </div>\n    <div>\n      <button routerLink=\"/dashboard\" routerLinkActive=\"active\" mat-button color=\"primary\">\n      <mat-icon>stars</mat-icon>\n      Leader Dashboard</button>\n    </div>\n    <div>\n      <button routerLink=\"/addstock\" routerLinkActive=\"active\"  mat-button color=\"primary\">\n          <mat-icon>attach_money</mat-icon>\n          Give Points</button>\n    </div>\n    <div>\n        <button mat-button color=\"primary\">\n            <mat-icon>history</mat-icon>\n            My History</button>\n      </div>\n    </mat-sidenav>\n    <mat-sidenav-content class=\"sidenav-content\">\n      <div>\n      <router-outlet></router-outlet>  \n      </div>\n    </mat-sidenav-content>\n</mat-sidenav-container>\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"ss-fix-header\">\r\n    <mat-toolbar color=\"primary\" class=\"toolbar\">\r\n        <button class=\"hamburger\" class=\"hamburger\" (click)=\"sideNav.toggle()\" mat-icon-button >\r\n          <mat-icon>menu</mat-icon>\r\n        </button>\r\n        <div class=\"user\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"appMenu\">\r\n              <mat-icon>sentiment_very_satisfied</mat-icon>\r\n            <span>Jane Doe</span>\r\n            <mat-icon>arrow_drop_down</mat-icon>\r\n          </button>\r\n          <mat-menu #appMenu=\"matMenu\">\r\n            <button mat-menu-item>My Account</button>\r\n            <button mat-menu-item>Logout</button>\r\n          </mat-menu>\r\n        </div> \r\n    </mat-toolbar>\r\n  </div>\r\n  <mat-sidenav-container class=\"sidenav-container\">\r\n      <mat-sidenav class=\"sidenav\" #sideNav mode=\"push\" opened=\"false\">\r\n      <div class=\"navbar-header\">\r\n          <div class=\"logo\">\r\n            <img class=\"logo-icon\" src=\"\">\r\n            <span class=\"logo-text\">Stock Share</span>\r\n          </div>\r\n      </div>\r\n      <div>\r\n        <button routerLink=\"/dashboard\" routerLinkActive=\"active\" mat-button color=\"primary\">\r\n        <mat-icon>stars</mat-icon>\r\n        Leader Dashboard</button>\r\n      </div>\r\n      <div>\r\n        <button routerLink=\"/addstock\" routerLinkActive=\"active\"  mat-button color=\"primary\">\r\n            <mat-icon>attach_money</mat-icon>\r\n            Give Points</button>\r\n      </div>\r\n      <div>\r\n          <button mat-button color=\"primary\">\r\n              <mat-icon>history</mat-icon>\r\n              My History</button>\r\n        </div>\r\n      </mat-sidenav>\r\n      <mat-sidenav-content class=\"sidenav-content\">\r\n        <div>\r\n        <router-outlet></router-outlet>  \r\n        </div>\r\n      </mat-sidenav-content>\r\n  </mat-sidenav-container>\r\n</div>"
 
 /***/ }),
 

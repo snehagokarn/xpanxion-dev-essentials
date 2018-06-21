@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-stock',
@@ -10,10 +11,12 @@ export class AddStockComponent implements OnInit {
 
   @ViewChild('browseImage') browseImage:ElementRef;
   @ViewChild('visibleImageName') visibleImageName:ElementRef;
-  @ViewChild('name') name:ElementRef;
-  @ViewChild('description') description:ElementRef;
+  @ViewChild('name') name:string;
+  @ViewChild('description') description:String;
+  @ViewChild('score') score:Number;
 
-  constructor(public snackBar: MatSnackBar) { }
+  constructor(private http:HttpClient,public snackBar: MatSnackBar) { }
+  public APIUrl =" https://ortj2rixy2.execute-api.us-east-1.amazonaws.com/dev/"
 
   ngOnInit() {
   }
@@ -36,13 +39,31 @@ export class AddStockComponent implements OnInit {
   resetStock(){
     this.browseImage.nativeElement.value = '';
     this.visibleImageName.nativeElement.value = '';
-    this.description.nativeElement.value = '';
-    this.name.nativeElement.value = '';
+    this.description = '';
+    this.name = '';
   }
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 3000,
+    });
+  }
+
+  addStock(){
+    let obj = {
+      Id: Math.random().toString(),
+      GiverId: this.name,
+      Description: this.description,
+      Score: this.score,
+      GetterId: "",
+      ImageUrl: "https://pbs.twimg.com/profile_images/2547401667/me_400x400.jpg"
+    }
+
+    return this.http.post(this.APIUrl+"scores",obj).subscribe((resp)=>{
+        if(resp === true){
+            this.openSnackBar('You shared some love', '');
+          }
+
     });
   }
 

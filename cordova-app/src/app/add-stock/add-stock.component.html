@@ -5,22 +5,24 @@
   <mat-card-content>
     <form>
 		<mat-form-field class="ss-full-width">
-			<input matInput placeholder="Name" #name>
+			<input name="name" [(ngModel)]="name" matInput placeholder="Name">
 		</mat-form-field>
 		<mat-form-field class="ss-full-width">
-			<textarea matInput placeholder="Describe achievements" #description></textarea>
+			<textarea name="description" matInput placeholder="Describe achievements"  [(ngModel)]="description"></textarea>
 		</mat-form-field>
-		
+		<mat-form-field>
+			<input name="score" type="number" matInput placeholder="Score" [(ngModel)]="score">
+		</mat-form-field>
 		<div class="form-group">
 			<mat-form-field>
-				<input readonly="readonly" #visibleImageName matInput placeholder="Image Name">
+				<input readonly="readonly" name="image" #visibleImageName matInput placeholder="Image Name">
 			</mat-form-field>			
 			
 			<input #browseImage class="ss-hidden" type="file" (change)="updateImageName()" accept="image/x-png,image/gif,image/jpeg">			
 			<button class="ss-floatRight" mat-button color="primary" (click)="triggerBrowse()">Browse</button>
 		</div>
 		<button class="ss-full-width ss-mb-1" mat-raised-button color="primary" (click)="resetStock()">Reset</button>
-		<button type="submit" class="ss-full-width" mat-raised-button color="primary">Add</button>
+		<button type="submit" (click)="addStock()" class="ss-full-width" mat-raised-button color="primary">Add</button>
     </form>
   </mat-card-content>
 </mat-card>
