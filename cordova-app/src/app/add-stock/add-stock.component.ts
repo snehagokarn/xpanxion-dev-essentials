@@ -24,8 +24,15 @@ export class AddStockComponent implements OnInit {
   }
 
   triggerBrowse() {
-    this.browseImage = document.getElementById("browserImage");
-    this.browseImage.click();
+    // this.browseImage = document.getElementById("browserImage");
+    // this.browseImage.click();
+   
+    let nav : any = navigator;
+    let that = this;
+    nav.camera.getPicture( (imageData)=>{
+        that.base64FileStream = imageData;
+        console.log(imageData);
+    }, ()=>{}, { destinationType:0});
   }
 
   updateImageName() {
@@ -36,6 +43,7 @@ export class AddStockComponent implements OnInit {
       (actualImagePath.toLowerCase().indexOf('jpg') > -1) ||
       (actualImagePath.toLowerCase().indexOf('gif') > -1)) {
       this.visibleImageName = imageName;
+      
       this.getBase64(this.browseImage.files[0], this.base64FileStream);
     } else {
       this.openSnackBar('Upload Images only', '');
@@ -57,6 +65,7 @@ export class AddStockComponent implements OnInit {
   }
 
   addStock() {
+    debugger;
     let obj = {
       Id: Math.random().toString(),
       GiverId: "null",//Todo put a logged in user here
@@ -66,15 +75,14 @@ export class AddStockComponent implements OnInit {
       ImageUrl: null
     }
 
-    let imageFile = this.browseImage ? this.browseImage.files[0] : undefined;
     let fileObject= {};
     var save = this.http.post(this.APIUrl + "scores", obj);
-    if (imageFile) {
+    if (this.base64FileStream) {
     
       fileObject = {
-        name: imageFile.name,
+        name: "UploadedImage"+ Date.now().toLocaleString(),
         file: this.base64FileStream,
-        extension: imageFile.type
+        extension: "image/jpeg"
       }
 
       this.http.post(this.APIUrl + "uploadFile", fileObject).subscribe((resp: any) => {

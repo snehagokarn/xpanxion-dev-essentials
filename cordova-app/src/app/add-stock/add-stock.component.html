@@ -14,13 +14,13 @@
 			<input name="score" type="number" matInput placeholder="Score" [(ngModel)]="score">
 		</mat-form-field>
 		<div class="form-group">
-			<mat-form-field>
+			<!-- <mat-form-field>
 				<input readonly="readonly" [(ngModel)]="visibleImageName" name="image" matInput placeholder="Image Name">
-			</mat-form-field>			
+			</mat-form-field>			 -->
 			
-			<input name="browseImage" id="browserImage" class="ss-hidden" type="file" (change)="updateImageName()" 
-			accept="image/x-png,image/gif,image/jpeg">			
-			<button class="ss-floatRight" mat-button color="primary" (click)="triggerBrowse()">Browse</button>
+			<!-- <input name="browseImage" id="browserImage" class="ss-hidden" type="file" (change)="updateImageName()" 
+			accept="image/x-png,image/gif,image/jpeg">			 -->
+			<button mat-raised-button color="primary" (click)="triggerBrowse()">click pick with your mate</button>
 		</div>
 		<button class="ss-full-width ss-mb-1" mat-raised-button color="primary" (click)="resetStock()">Reset</button>
 		<button type="submit" (click)="addStock()" class="ss-full-width" mat-raised-button color="primary">Add</button>
