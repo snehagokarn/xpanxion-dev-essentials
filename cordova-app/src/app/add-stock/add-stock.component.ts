@@ -35,6 +35,19 @@ export class AddStockComponent implements OnInit {
     }, ()=>{}, { destinationType:0});
   }
 
+  photoBrowse() {
+    // this.browseImage = document.getElementById("browserImage");
+    // this.browseImage.click();
+   
+    let nav : any = navigator;
+    let that = this;
+    nav.camera.getPicture( (imageData)=>{
+        that.base64FileStream = imageData;
+        console.log(imageData);
+    }, ()=>{}, { destinationType:0,
+      sourceType:nav.camera.PictureSourceType.PHOTOLIBRARY});
+  }
+
   updateImageName() {
     let actualImagePath = this.browseImage.value;
     let imageName = actualImagePath.replace(/.*[\/\\]/, '');

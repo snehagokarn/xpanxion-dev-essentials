@@ -41,7 +41,7 @@ module.exports = ".ss-full-width{\r\n    width: 100%;\r\n}\r\n\r\n.ss-hidden{\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"ss-headline\">\r\n  Add Stock\r\n</h1>\r\n<mat-card fullscreen>\r\n  <mat-card-content>\r\n    <form>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<input name=\"name\" [(ngModel)]=\"name\" matInput placeholder=\"Name\">\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<textarea name=\"description\" matInput placeholder=\"Describe achievements\"  [(ngModel)]=\"description\"></textarea>\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field>\r\n\t\t\t<input name=\"score\" type=\"number\" matInput placeholder=\"Score\" [(ngModel)]=\"score\">\r\n\t\t</mat-form-field>\r\n\t\t<div class=\"form-group\">\r\n\t\t\t<mat-form-field>\r\n\t\t\t\t<input readonly=\"readonly\" [(ngModel)]=\"visibleImageName\" name=\"image\" matInput placeholder=\"Image Name\">\r\n\t\t\t</mat-form-field>\t\t\t\r\n\t\t\t\r\n\t\t\t<!-- <input name=\"browseImage\" id=\"browserImage\" class=\"ss-hidden\" type=\"file\" (change)=\"updateImageName()\" \r\n\t\t\taccept=\"image/x-png,image/gif,image/jpeg\">\t\t\t -->\r\n\t\t\t<button mat-button color=\"primary\" (click)=\"triggerBrowse()\">click pick with your mate</button>\r\n\t\t</div>\r\n\t\t<button class=\"ss-full-width ss-mb-1\" mat-raised-button color=\"primary\" (click)=\"resetStock()\">Reset</button>\r\n\t\t<button type=\"submit\" (click)=\"addStock()\" class=\"ss-full-width\" mat-raised-button color=\"primary\">Add</button>\r\n    </form>\r\n  </mat-card-content>\r\n</mat-card>"
+module.exports = "<h1 class=\"ss-headline\">\r\n  Add Stock\r\n</h1>\r\n<mat-card fullscreen>\r\n  <mat-card-content>\r\n    <form>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<input name=\"name\" [(ngModel)]=\"name\" matInput placeholder=\"Name\">\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<textarea name=\"description\" matInput placeholder=\"Describe achievements\"  [(ngModel)]=\"description\"></textarea>\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field>\r\n\t\t\t<input name=\"score\" type=\"number\" matInput placeholder=\"Score\" [(ngModel)]=\"score\">\r\n\t\t</mat-form-field>\r\n\t\t<div class=\"form-group\">\r\n\t\t\t<!-- <mat-form-field>\r\n\t\t\t\t<input readonly=\"readonly\" [(ngModel)]=\"visibleImageName\" name=\"image\" matInput placeholder=\"Image Name\">\r\n\t\t\t</mat-form-field>\t\t\t -->\r\n\t\t\t\r\n\t\t\t<!-- <input name=\"browseImage\" id=\"browserImage\" class=\"ss-hidden\" type=\"file\" (change)=\"updateImageName()\" \r\n\t\t\taccept=\"image/x-png,image/gif,image/jpeg\">\t\t\t -->\r\n\t\t\t<button class=\"ss-full-width ss-mb-1\" mat-stroked-button color=\"primary\" (click)=\"triggerBrowse()\"><mat-icon>camera</mat-icon> Take a snap with your mate</button>\r\n\t\t\t<div style=\"text-align: center\" class=\"ss-full-width ss-mb-1\">OR</div>\r\n\t\t\t<button class=\"ss-full-width ss-mb-1\" mat-stroked-button color=\"primary\" (click)=\"photoBrowse()\"><mat-icon>insert_photo</mat-icon> Upload a photo from your phone</button>\r\n\t\t</div>\r\n\t\t<button class=\"ss-full-width ss-mb-1\" mat-raised-button color=\"primary\" (click)=\"resetStock()\">Reset</button>\r\n\t\t<button type=\"submit\" (click)=\"addStock()\" class=\"ss-full-width\" mat-raised-button color=\"primary\">Add</button>\r\n    </form>\r\n  </mat-card-content>\r\n</mat-card>"
 
 /***/ }),
 
@@ -92,6 +92,17 @@ var AddStockComponent = /** @class */ (function () {
             that.base64FileStream = imageData;
             console.log(imageData);
         }, function () { }, { destinationType: 0 });
+    };
+    AddStockComponent.prototype.photoBrowse = function () {
+        // this.browseImage = document.getElementById("browserImage");
+        // this.browseImage.click();
+        var nav = navigator;
+        var that = this;
+        nav.camera.getPicture(function (imageData) {
+            that.base64FileStream = imageData;
+            console.log(imageData);
+        }, function () { }, { destinationType: 0,
+            sourceType: nav.camera.PictureSourceType.PHOTOLIBRARY });
     };
     AddStockComponent.prototype.updateImageName = function () {
         var actualImagePath = this.browseImage.value;

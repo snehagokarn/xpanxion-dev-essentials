@@ -20,7 +20,9 @@
 			
 			<!-- <input name="browseImage" id="browserImage" class="ss-hidden" type="file" (change)="updateImageName()" 
 			accept="image/x-png,image/gif,image/jpeg">			 -->
-			<button mat-raised-button color="primary" (click)="triggerBrowse()">click pick with your mate</button>
+			<button class="ss-full-width ss-mb-1" mat-stroked-button color="primary" (click)="triggerBrowse()"><mat-icon>camera</mat-icon> Take a snap with your mate</button>
+			<div style="text-align: center" class="ss-full-width ss-mb-1">OR</div>
+			<button class="ss-full-width ss-mb-1" mat-stroked-button color="primary" (click)="photoBrowse()"><mat-icon>insert_photo</mat-icon> Upload a photo from your phone</button>
 		</div>
 		<button class="ss-full-width ss-mb-1" mat-raised-button color="primary" (click)="resetStock()">Reset</button>
 		<button type="submit" (click)="addStock()" class="ss-full-width" mat-raised-button color="primary">Add</button>
