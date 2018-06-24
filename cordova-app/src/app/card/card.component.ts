@@ -1,4 +1,4 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter  } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -8,13 +8,21 @@ import { Component, OnInit, Input  } from '@angular/core';
 
 
 export class CardComponent implements OnInit {
-   @Input('card') 
+   @Input('card')
    public card:Card;
+   @Output('toogleLike')
+   public toogleLike:EventEmitter<any> = new EventEmitter();
+   
   constructor() { }
  
   ngOnInit() {
   }
-
+  public toggleLike(card){
+    if(card.like === 0)
+      this.toogleLike.emit(1);
+    else
+    this.toogleLike.emit(0);
+  }
 }
 
 export interface Card {
@@ -23,5 +31,7 @@ export interface Card {
   imageUrl:string;
   imageAlt:string;
   allowLike:boolean;
+  score:number;
+  like:number;
 }
 

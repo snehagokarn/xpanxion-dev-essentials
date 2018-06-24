@@ -1,9 +1,8 @@
 <h1 class="ss-headline">
-  Leader Dashboard
-</h1>
+  Leader Dashboard</h1>
 <div *ngIf="leaders" class="ss-dashboard-card">
   <div *ngFor="let leader of leaders">
-    <app-card [card]="translateToCard(leader)"></app-card>
+    <app-card [card]="translateToCard(leader)" (toogleLike)="toggleLike($event,leader)" ></app-card>
   </div>
 </div>
 <div *ngIf="!leaders">

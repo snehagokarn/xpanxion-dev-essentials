@@ -22,12 +22,21 @@ export class DashboardComponent implements OnInit {
       description:leader.description,
       imageUrl:leader.image,
       title: leader.fullName,
-      imageAlt:""
+      imageAlt:"",
+      score: leader.score,
+      like:leader.like
     };
 
   }
-  constructor(private http:HttpClient,private router:Router) { }
 
+  toggleLike($event,leader:Leader){
+    leader.like = $event;
+  }
+
+  constructor(private http:HttpClient,private router:Router) { }
+  reload(){
+    window.location.reload()
+  }
   ngOnInit() {
     this.leaders = new Array<Leader>();
     return this.http.get(this.APIUrl+"dashboard").subscribe( 
@@ -40,7 +49,8 @@ export class DashboardComponent implements OnInit {
               fullName:element.GetterId,
               score:element.Score,
               image:element.ImageUrl,
-              description:element.Description
+              description:element.Description,
+              like:0
             });
           });
         }
@@ -61,4 +71,5 @@ export interface Leader{
     score:number;
     image:string;
     description:string;
+    like:number;
 }

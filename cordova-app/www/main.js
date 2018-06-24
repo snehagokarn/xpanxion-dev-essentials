@@ -41,7 +41,7 @@ module.exports = ".ss-full-width{\r\n    width: 100%;\r\n}\r\n\r\n.ss-hidden{\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"ss-headline\">\r\n  Add Stock\r\n</h1>\r\n<mat-card fullscreen>\r\n  <mat-card-content>\r\n    <form>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<input name=\"name\" [(ngModel)]=\"name\" matInput placeholder=\"Name\">\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<textarea name=\"description\" matInput placeholder=\"Describe achievements\"  [(ngModel)]=\"description\"></textarea>\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field>\r\n\t\t\t<input name=\"score\" type=\"number\" matInput placeholder=\"Score\" [(ngModel)]=\"score\">\r\n\t\t</mat-form-field>\r\n\t\t<div class=\"form-group\">\r\n\t\t\t<!-- <mat-form-field>\r\n\t\t\t\t<input readonly=\"readonly\" [(ngModel)]=\"visibleImageName\" name=\"image\" matInput placeholder=\"Image Name\">\r\n\t\t\t</mat-form-field>\t\t\t -->\r\n\t\t\t\r\n\t\t\t<!-- <input name=\"browseImage\" id=\"browserImage\" class=\"ss-hidden\" type=\"file\" (change)=\"updateImageName()\" \r\n\t\t\taccept=\"image/x-png,image/gif,image/jpeg\">\t\t\t -->\r\n\t\t\t<button class=\"ss-full-width ss-mb-1\" mat-stroked-button color=\"primary\" (click)=\"triggerBrowse()\"><mat-icon>camera</mat-icon> Take a snap with your mate</button>\r\n\t\t\t<div style=\"text-align: center\" class=\"ss-full-width ss-mb-1\">OR</div>\r\n\t\t\t<button class=\"ss-full-width ss-mb-1\" mat-stroked-button color=\"primary\" (click)=\"photoBrowse()\"><mat-icon>insert_photo</mat-icon> Upload a photo from your phone</button>\r\n\t\t</div>\r\n\t\t<button class=\"ss-full-width ss-mb-1\" mat-raised-button color=\"primary\" (click)=\"resetStock()\">Reset</button>\r\n\t\t<button type=\"submit\" (click)=\"addStock()\" class=\"ss-full-width\" mat-raised-button color=\"primary\">Add</button>\r\n    </form>\r\n  </mat-card-content>\r\n</mat-card>"
+module.exports = "<h1 class=\"ss-headline\">\r\n  Add Stock\r\n</h1>\r\n<mat-card fullscreen>\r\n  <mat-card-content>\r\n    <form>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<input name=\"name\" [(ngModel)]=\"name\" matInput placeholder=\"Name\">\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field class=\"ss-full-width\">\r\n\t\t\t<textarea name=\"description\" matInput placeholder=\"Describe achievements\"  [(ngModel)]=\"description\"></textarea>\r\n\t\t</mat-form-field>\r\n\t\t<mat-form-field>\r\n\t\t\t<input name=\"score\" min=\"1\" max=\"100\" type=\"number\" matInput placeholder=\"Score\" [(ngModel)]=\"score\">\r\n\t\t</mat-form-field>\r\n\t\t<div class=\"form-group\">\r\n\t\t\t<!-- <mat-form-field>\r\n\t\t\t\t<input readonly=\"readonly\" [(ngModel)]=\"visibleImageName\" name=\"image\" matInput placeholder=\"Image Name\">\r\n\t\t\t</mat-form-field>\t\t\t -->\r\n\t\t\t\r\n\t\t\t<!-- <input name=\"browseImage\" id=\"browserImage\" class=\"ss-hidden\" type=\"file\" (change)=\"updateImageName()\" \r\n\t\t\taccept=\"image/x-png,image/gif,image/jpeg\">\t\t\t -->\r\n\t\t\t<button class=\"ss-full-width ss-mb-1\" mat-stroked-button color=\"primary\" (click)=\"triggerBrowse()\"><mat-icon>camera</mat-icon> Take a snap with your mate</button>\r\n\t\t\t<div style=\"text-align: center\" class=\"ss-full-width ss-mb-1\">OR</div>\r\n\t\t\t<button class=\"ss-full-width ss-mb-1\" mat-stroked-button color=\"primary\" (click)=\"photoBrowse()\"><mat-icon>insert_photo</mat-icon> Upload a photo from your phone</button>\r\n\t\t</div>\r\n\t\t<button class=\"ss-full-width ss-mb-1\" mat-raised-button color=\"primary\" (click)=\"resetStock()\">Reset</button>\r\n\t\t<button type=\"submit\" (click)=\"addStock()\" class=\"ss-full-width\" mat-raised-button color=\"primary\">Add</button>\r\n    </form>\r\n  </mat-card-content>\r\n</mat-card>"
 
 /***/ }),
 
@@ -358,7 +358,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".ss-image-wrapper{\r\n    text-align: center;\r\n    background: beige;\r\n}\r\n\r\n.ss-image-wrapper img{\r\n    width: auto;\r\n    max-width: 100%;\r\n    margin: 0 !important;\r\n}\r\n\r\n/* todo add media query */"
+module.exports = ".ss-image-wrapper{\r\n    text-align: center;\r\n    background: beige;\r\n}\r\n\r\n.ss-image-wrapper img{\r\n    width: auto;\r\n    max-width: 100%;\r\n    margin: 0 !important;\r\n}\r\n\r\n/* todo add media query */\r\n\r\n.ss-right-button{\r\n    position: absolute;right: 10px;bottom: 9px;\r\n}"
 
 /***/ }),
 
@@ -369,7 +369,7 @@ module.exports = ".ss-image-wrapper{\r\n    text-align: center;\r\n    backgroun
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"card\">\r\n  <mat-card-title>{{card.title}}</mat-card-title>\r\n  <div class=\"ss-image-wrapper\">\r\n    <img mat-card-image src=\"{{card.imageUrl}}\" alt=\"{{imageAlt}}\">\r\n  </div>\r\n  <mat-card-content>\r\n    <p>\r\n      {{card.description}}\r\n    </p>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button *ngIf=\"card.allowLike\" mat-raised-button color=\"primary\">\r\n      <mat-icon>thumb_up</mat-icon>LIKE</button>\r\n  </mat-card-actions>\r\n</mat-card>"
+module.exports = "<mat-card class=\"card\">\r\n  <mat-card-title>{{card.title}} <span class=\"ss-right\">{{card.score}}</span></mat-card-title>\r\n  <div class=\"ss-image-wrapper\">\r\n    <img mat-card-image src=\"{{card.imageUrl}}\" alt=\"{{imageAlt}}\">\r\n  </div>\r\n  <mat-card-content>\r\n    <p>\r\n      {{card.description}}\r\n    </p>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button (click)=\"toggleLike(card)\" *ngIf=\"card.allowLike\" mat-raised-button color=\"primary\">\r\n      <mat-icon>thumb_up</mat-icon>LIKE</button>\r\n      <span><button class=\"ss-right-button\"  mat-mini-fab>{{card.like}}</button></span>\r\n  </mat-card-actions>\r\n</mat-card>"
 
 /***/ }),
 
@@ -396,13 +396,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var CardComponent = /** @class */ (function () {
     function CardComponent() {
+        this.toogleLike = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     CardComponent.prototype.ngOnInit = function () {
+    };
+    CardComponent.prototype.toggleLike = function (card) {
+        if (card.like === 0)
+            this.toogleLike.emit(1);
+        else
+            this.toogleLike.emit(0);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('card'),
         __metadata("design:type", Object)
     ], CardComponent.prototype, "card", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])('toogleLike'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], CardComponent.prototype, "toogleLike", void 0);
     CardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-card',
@@ -436,7 +447,7 @@ module.exports = ".add-button{\r\n  position: fixed;\r\n  right: 1rem;\r\n  bott
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"ss-headline\">\r\n  Leader Dashboard\r\n</h1>\r\n<div *ngIf=\"leaders\" class=\"ss-dashboard-card\">\r\n  <div *ngFor=\"let leader of leaders\">\r\n    <app-card [card]=\"translateToCard(leader)\"></app-card>\r\n  </div>\r\n</div>\r\n<div *ngIf=\"!leaders\">\r\n  No results to display\r\n</div>\r\n<button mat-fab class=\"add-button\" (click)=\"addStock()\" ><mat-icon>add</mat-icon></button> "
+module.exports = "<h1 class=\"ss-headline\">\r\n  Leader Dashboard\r\n</h1>\r\n<div *ngIf=\"leaders\" class=\"ss-dashboard-card\">\r\n  <div *ngFor=\"let leader of leaders\">\r\n    <app-card [card]=\"translateToCard(leader)\" (toogleLike)=\"toggleLike($event,leader)\" ></app-card>\r\n  </div>\r\n</div>\r\n<div *ngIf=\"!leaders\">\r\n  No results to display\r\n</div>\r\n<button mat-fab class=\"add-button\" (click)=\"addStock()\" ><mat-icon>add</mat-icon></button> "
 
 /***/ }),
 
@@ -477,8 +488,13 @@ var DashboardComponent = /** @class */ (function () {
             description: leader.description,
             imageUrl: leader.image,
             title: leader.fullName,
-            imageAlt: ""
+            imageAlt: "",
+            score: leader.score,
+            like: leader.like
         };
+    };
+    DashboardComponent.prototype.toggleLike = function ($event, leader) {
+        leader.like = $event;
     };
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -491,7 +507,8 @@ var DashboardComponent = /** @class */ (function () {
                         fullName: element.GetterId,
                         score: element.Score,
                         image: element.ImageUrl,
-                        description: element.Description
+                        description: element.Description,
+                        like: 0
                     });
                 });
             }

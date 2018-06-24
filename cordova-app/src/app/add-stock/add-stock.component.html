@@ -11,7 +11,7 @@
 			<textarea name="description" matInput placeholder="Describe achievements"  [(ngModel)]="description"></textarea>
 		</mat-form-field>
 		<mat-form-field>
-			<input name="score" type="number" matInput placeholder="Score" [(ngModel)]="score">
+			<input name="score" min="1" max="100" type="number" matInput placeholder="Score" [(ngModel)]="score">
 		</mat-form-field>
 		<div class="form-group">
 			<!-- <mat-form-field>
