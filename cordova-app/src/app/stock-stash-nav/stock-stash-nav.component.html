@@ -1,18 +1,18 @@
 <div class="container">
   <div class="ss-fix-header">
-    <mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar *ngIf="auth.isLoggedIn" color="primary" class="toolbar">
         <button class="hamburger" class="hamburger" (click)="sideNav.toggle()" mat-icon-button >
           <mat-icon>menu</mat-icon>
         </button>
         <div class="user">
           <button mat-icon-button [matMenuTriggerFor]="appMenu">
               <mat-icon>sentiment_very_satisfied</mat-icon>
-            <span>Sarah Conner</span>
+            <span>{{auth.getLoggedInUser.name}}</span>
             <mat-icon>arrow_drop_down</mat-icon>
           </button>
           <mat-menu #appMenu="matMenu">
             <button mat-menu-item>My Account</button>
-            <button mat-menu-item>Logout</button>
+            <button (click)="auth.logout()" mat-menu-item>Logout</button>
           </mat-menu>
         </div> 
     </mat-toolbar>

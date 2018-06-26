@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../AuthService';
 
 @Component({
   selector: 'app-stock-stash-nav',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockStashNavComponent implements OnInit {
 
-  constructor() { }
+  constructor( public auth :AuthService) { }
 
   ngOnInit() {
+
   }
 
 }

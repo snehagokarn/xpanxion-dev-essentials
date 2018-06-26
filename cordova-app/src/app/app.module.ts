@@ -14,6 +14,8 @@ import { AppHttpInterceptor } from './http-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {enableProdMode} from '@angular/core';
+import { AuthService } from './AuthService';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,12 @@ import { HttpClientModule } from '@angular/common/http';
     //   useClass:AppHttpInterceptor,
     //   multi:true
     // }
+    AuthService
   ],
-  bootstrap: [AppComponent]
+
+  bootstrap: [AppComponent],
+  
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
