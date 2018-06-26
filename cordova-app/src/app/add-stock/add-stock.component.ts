@@ -78,7 +78,7 @@ export class AddStockComponent implements OnInit {
   }
 
   addStock() {
-    debugger;
+    this.openSnackBar('Adding your stock', '');
     let obj = {
       Id: Math.random().toString(),
       GiverId: "null",//Todo put a logged in user here
